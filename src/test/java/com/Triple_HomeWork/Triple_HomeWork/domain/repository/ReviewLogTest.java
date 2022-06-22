@@ -1,15 +1,16 @@
 package com.Triple_HomeWork.Triple_HomeWork.domain.repository;
 
+import com.Triple_HomeWork.Triple_HomeWork.domain.review.dto.ReviewEventDto;
 import com.Triple_HomeWork.Triple_HomeWork.domain.review.entity.ReviewLog;
-import com.Triple_HomeWork.Triple_HomeWork.domain.review.repository.ReviewRepository;
+import com.Triple_HomeWork.Triple_HomeWork.domain.review.repository.ReviewLogRepository;
+import com.Triple_HomeWork.Triple_HomeWork.service.ReviewService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Stack;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
@@ -17,7 +18,7 @@ import java.util.stream.IntStream;
 public class ReviewLogTest {
 
     @Autowired
-    ReviewRepository repository;
+    ReviewLogRepository repository;
 
     @Test
     public void 작성_테스트() {
@@ -48,5 +49,64 @@ public class ReviewLogTest {
         }
         System.out.println("있음");
         System.out.println(entity.get(0));
+    }
+
+    @Autowired
+    ReviewService reviewService;
+
+    @Test
+    public void Insert_테스트() {
+        List<String> list = new ArrayList<>();
+        ReviewEventDto dto = new ReviewEventDto();
+        dto.setAction("ADD");
+        dto.setPlaceId("f6b0c994-3993-4eda-9976-242592ec639c");
+//        dto.setReviewId("b5430982-2314-41aa-8870-0fde517eeb1f");
+        dto.setUserId("eeae005c-4ebb-42c6-ba52-6c55b48fb47a");
+//        dto.setPlaceId(UUID.randomUUID().toString());
+        dto.setReviewId(UUID.randomUUID().toString());
+//        dto.setUserId(UUID.randomUUID().toString());
+        dto.setContent("Hi");
+        dto.setAttachedPhotoIds(list);
+        dto.setType("REVIEW");
+
+        reviewService.reviewService(dto);
+    }
+
+    @Test
+    public void Mod_테스트() {
+        List<String> list = new ArrayList<>();
+        list.add("image");
+        ReviewEventDto dto = new ReviewEventDto();
+        dto.setAction("MOD");
+//        dto.setReviewId(UUID.randomUUID().toString());
+//        dto.setPlaceId("f6b0c994-3993-4eda-9976-242592ec639c");
+        dto.setReviewId("e93131f6-a430-4f9c-a80e-8ba8f5677341");
+        dto.setPlaceId("f6b0c994-3993-4eda-9976-242592ec639c");
+//        dto.setUserId(UUID.randomUUID().toString());
+        dto.setUserId("2648705a-2622-4ff4-9eab-757a12047f69");
+        dto.setContent("Hi수정2");
+        dto.setAttachedPhotoIds(list);
+        dto.setType("REVIEW");
+
+        reviewService.reviewService(dto);
+    }
+
+    @Test
+    public void Delete_테스트() {
+        List<String> list = new ArrayList<>();
+        list.add("image");
+        ReviewEventDto dto = new ReviewEventDto();
+        dto.setAction("DELETE");
+//        dto.setReviewId(UUID.randomUUID().toString());
+//        dto.setUserId(UUID.randomUUID().toString());
+//        dto.setPlaceId(UUID.randomUUID().toString());
+        dto.setPlaceId("f6b0c994-3993-4eda-9976-242592ec639c");
+        dto.setReviewId("b5430982-2314-41aa-8870-0fde517eeb1f");
+        dto.setUserId("eeae005c-4ebb-42c6-ba52-6c55b48fb47a");
+        dto.setContent("삭제");
+        dto.setAttachedPhotoIds(list);
+        dto.setType("REVIEW");
+
+        reviewService.reviewService(dto);
     }
 }

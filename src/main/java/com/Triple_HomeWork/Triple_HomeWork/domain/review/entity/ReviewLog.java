@@ -3,6 +3,7 @@ package com.Triple_HomeWork.Triple_HomeWork.domain.review.entity;
 import com.Triple_HomeWork.Triple_HomeWork.util.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -16,7 +17,10 @@ import java.util.List;
 public class ReviewLog extends BaseEntity {
 
     @Id
-    @Column(length = 50)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long lno;
+
+    @Column(nullable = false, length = 50)
     private String reviewId;
 
     @Column(nullable = false, length = 50)
@@ -38,4 +42,15 @@ public class ReviewLog extends BaseEntity {
     @ElementCollection
     @CollectionTable(name = "attached_photo_ids")
     private List<String> photo;
+
+    private Boolean bonusCheck;
+
+    private Long mileage;
+
+    public Long getMileage() {
+        return mileage;
+    }
+    public void setBonusCheck(){
+        bonusCheck = false;
+    }
 }
