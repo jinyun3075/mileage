@@ -1,13 +1,15 @@
 package com.Triple_HomeWork.Triple_HomeWork.service;
 
 import com.Triple_HomeWork.Triple_HomeWork.domain.review.dto.ReviewEventDto;
-import com.Triple_HomeWork.Triple_HomeWork.domain.review.entity.ReviewLog;
+import com.Triple_HomeWork.Triple_HomeWork.domain.review.entity.ReviewEvent;
 
-public interface ReviewService {
-    void reviewService(ReviewEventDto dto);
+public interface ReviewEventService {
+    String reviewService(ReviewEventDto dto) throws Exception;
 
-    default ReviewLog dtoToEntity(ReviewEventDto dto) {
-        return ReviewLog.builder()
+    Long myMileage(String user_id);
+
+    default ReviewEvent dtoToEntity(ReviewEventDto dto) {
+        return ReviewEvent.builder()
                 .type(dto.getType())
                 .photo(dto.getAttachedPhotoIds())
                 .content(dto.getContent())

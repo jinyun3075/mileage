@@ -3,18 +3,16 @@ package com.Triple_HomeWork.Triple_HomeWork.domain.review.entity;
 import com.Triple_HomeWork.Triple_HomeWork.util.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewLog extends BaseEntity {
+public class ReviewEvent extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
