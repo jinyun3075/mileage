@@ -15,8 +15,7 @@ public class ReviewEventController {
 
     @PostMapping("/events")
     public ResponseEntity<String> reviewEvent(@RequestBody ReviewEventDto dto) throws Exception{
-        service.reviewService(dto);
-        return new ResponseEntity<>("입력완료", HttpStatus.OK);
+        return new ResponseEntity<>(service.reviewService(dto), HttpStatus.OK);
     }
 
     @GetMapping("/mileage/{user_id}")
