@@ -12,6 +12,13 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(indexes = {
+        @Index(name = "review_id", columnList = "reviewId"),
+        @Index(name = "user_id", columnList = "userid"),
+        @Index(name = "review_id_bonus_check", columnList = "reviewId,bonusCheck"),
+        @Index(name = "place_id_user_id", columnList = "placeId,userId"),
+        @Index(name = "bonus_check_place_id", columnList = "bonusCheck, placeId")
+})
 public class ReviewEvent extends BaseEntity {
 
     @Id

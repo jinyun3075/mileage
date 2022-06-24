@@ -60,10 +60,10 @@ public class ReviewLogTest {
         dto.setAction("ADD");
 //        dto.setPlaceId("80ba2de9-f1dc-412d-a473-5fd71980f331");
 //        dto.setReviewId("e09bc00b-e4af-4bc9-a4f7-3145ab633a83");
-        dto.setUserId("64cfab7a-cdc7-434c-afd3-1c672fdb6e8c");
+//        dto.setUserId("64cfab7a-cdc7-434c-afd3-1c672fdb6e8c");
         dto.setPlaceId(UUID.randomUUID().toString());
         dto.setReviewId(UUID.randomUUID().toString());
-//        dto.setUserId(UUID.randomUUID().toString());
+        dto.setUserId(UUID.randomUUID().toString());
         dto.setContent("Hi");
         dto.setAttachedPhotoIds(list);
         dto.setType("REVIEW");
