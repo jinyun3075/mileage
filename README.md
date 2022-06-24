@@ -5,7 +5,8 @@
 - My SQL 8.0
 
 ## ERD 관계도
-![image](https://user-images.githubusercontent.com/64072136/175473553-aa68e8f0-7e23-44ca-84c8-e1e606b7f100.png)
+![image](https://user-images.githubusercontent.com/64072136/175482986-0cd668c9-c678-482f-9587-8f2facbe72c9.png)
+
 
 
 ## 실행 방법
