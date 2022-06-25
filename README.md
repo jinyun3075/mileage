@@ -86,7 +86,7 @@ java -jar build/libs/Triple_HomeWork-0.0.1-SNAPSHOT.jar
   - /events (post)
 
 - headers
-  - "Content-type" : "application/json"
+  - "Content-Type" : "application/json"
   
 - req
   - "type": String
@@ -110,7 +110,7 @@ java -jar build/libs/Triple_HomeWork-0.0.1-SNAPSHOT.jar
   - /mileage/:user_id (get)
   
 - headers
-  - "Content-type" : "application/json"
+  - "Content-Type" : "application/json"
   
 - res
   - Number
