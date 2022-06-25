@@ -16,6 +16,8 @@
 - JDK 17
 - Spring Boot 2.7
 - My SQL 8.0
+
+### 테스트 서버 URL http://52.79.165.66:8082
  
 <br/>
  
