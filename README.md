@@ -1,15 +1,52 @@
 # 트리플여행자 클럽 마일리지 서비스
-## 개발 환경
+## 📌개발 환경
 - JDK 17
 - Spring Boot 2.7
 - My SQL 8.0
-
-## ERD 관계도
+ 
+<br/>
+ 
+## 📌ERD 관계도
 ![image](https://user-images.githubusercontent.com/64072136/175482986-0cd668c9-c678-482f-9587-8f2facbe72c9.png)
 
+<br/>
 
+## 📌DDL
+```sql
 
-## 실행 방법
+CREATE TABLE review_event (
+        lno BIGINT NOT NULL auto_increment,
+        moddate datetime(6),
+        regdate datetime(6),
+        action VARCHAR(10) NOT NULL,
+        bonus_check bit,
+        content VARCHAR(1000),
+        mileage BIGINT,
+        place_id VARCHAR(50) NOT NULL,
+        review_id VARCHAR(50) NOT NULL,
+        type VARCHAR(10) NOT NULL,
+        user_id VARCHAR(50) NOT NULL,
+        PRIMARY KEY (lno)
+);
+
+CREATE INDEX review_id ON review_event (review_id);
+CREATE INDEX user_id ON review_event (user_id);
+CREATE INDEX review_id_bonus_check ON review_event (review_id, bonus_check);
+CREATE INDEX place_id_user_id ON review_event (place_id, user_id);
+CREATE INDEX bonus_check_place_id ON review_event (bonus_check, place_id);
+
+CREATE TABLE attached_photo_ids (
+       review_event_lno BIGINT NOT NULL,
+       photo VARCHAR(255),
+       FOREIGN KEY (review_event_lno) 
+       REFERENCES review_event (lno)
+);
+
+```
+
+<br/>
+
+## 📌실행 방법
 1. My SQL 실행 후 명령어 입력
 ```sql
 CREATE DATABASE triple
@@ -26,8 +63,9 @@ spring.datasource.password={DB 비밀번호}
 
 java -jar build/libs/Triple_HomeWork-0.0.1-SNAPSHOT.jar 
 ```
+<br/>
 
-## API 명세
+## 📌API 명세
 ### 포인트 적립
 - api
   - /events (post)
